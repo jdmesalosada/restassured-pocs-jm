@@ -15,19 +15,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ReqRes2Tests {
-
-    private RequestSpecification defaultRequestSpecification(){
-
-        List<Filter> filters = new ArrayList<>();
-        filters.add(new RequestLoggingFilter());
-        filters.add(new ResponseLoggingFilter());
-
-        return new RequestSpecBuilder().setBaseUri("https://reqres.in")
-                .setBasePath("/api")
-                .addFilters(filters)
-                .setContentType(ContentType.JSON).build();
-    }
+public class ReqRes2Tests extends BaseTest {
 
     @Test
     public void getSingleUserTest() {
@@ -36,13 +24,6 @@ public class ReqRes2Tests {
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .body("data.id", equalTo(2));
-
-        // System.out.println(response);
-    }
-
-    @Before
-    public void setup() {
-        RestAssured.requestSpecification = defaultRequestSpecification();
     }
 
 }

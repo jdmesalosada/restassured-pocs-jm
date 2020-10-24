@@ -1,46 +1,18 @@
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.config.RestAssuredConfig;
-import io.restassured.filter.Filter;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
-import io.restassured.http.ContentType;
-
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.Before;
 import org.junit.Test;
 
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-
+import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-import static io.restassured.path.json.JsonPath.from;
-
-public class ReqResTests {
-
-    private static final Logger logger = LogManager.getLogger(ReqResTests.class);
-
-    @Before
-    public void setup() {
-        logger.info("Iniciando la configuracion");
-        RestAssured.requestSpecification = defaultRequestSpecification();
-        logger.info("Configuration exitosa.");
-    }
+public class ReqResTests extends BaseTest {
 
     @Test
     public void loginTest() {
@@ -184,7 +156,7 @@ public class ReqResTests {
         user.setEmail("eve.holt@reqres.in");
         user.setPassword("pistol");
 
-        CreateUserResponse userResponse  =
+        CreateUserResponse userResponse =
                 given()
                         .when()
                         .body(user)
@@ -199,30 +171,4 @@ public class ReqResTests {
         assertThat(userResponse.getId(), equalTo(4));
         assertThat(userResponse.getToken(), equalTo("QpwL5tke4Pnpja7X4"));
     }
-
-    private RequestSpecification defaultRequestSpecification(){
-
-        List<Filter> filters = new ArrayList<>();
-        filters.add(new RequestLoggingFilter());
-        filters.add(new ResponseLoggingFilter());
-
-        return new RequestSpecBuilder().setBaseUri("https://reqres.in")
-                .setBasePath("/api")
-                .addFilters(filters)
-                .setContentType(ContentType.JSON).build();
-    }
-
-    private RequestSpecification prodRequestSpecification(){
-        return new RequestSpecBuilder().setBaseUri("https://prod.reqres.in")
-                .setBasePath("/api")
-                .setContentType(ContentType.JSON).build();
-    }
-
-    private ResponseSpecification defaultResponseSpecification(){
-        return new ResponseSpecBuilder()
-                .expectStatusCode(HttpStatus.SC_OK)
-                .expectContentType(ContentType.JSON)
-                .build();
-    }
-
 }
