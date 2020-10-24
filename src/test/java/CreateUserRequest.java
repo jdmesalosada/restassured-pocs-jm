@@ -1,7 +1,6 @@
 public class CreateUserRequest{
 	private String password;
 	private String email;
-	private String foo;
 
 	public void setPassword(String password){
 		this.password = password;
