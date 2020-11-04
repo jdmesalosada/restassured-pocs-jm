@@ -26,4 +26,13 @@ public class ReqRes2Tests extends BaseTest {
                 .body("data.id", equalTo(2));
     }
 
+    @Test
+    public void getSingleUserTest2() {
+        given()
+                .get("users/2")
+                .then()
+                .statusCode(HttpStatus.SC_OK)
+                .body("data.id", equalTo(1));
+    }
+
 }
