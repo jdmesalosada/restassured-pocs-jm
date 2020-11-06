@@ -1,15 +1,18 @@
-import org.apache.commons.configuration2.ex.ConfigurationException;
+import java.io.FileNotFoundException;
+import java.util.Optional;
 
 public class ConfVariables {
 
-    private static LoadProperties loadProperties;
+    public static String getHost() {
+        return Optional.ofNullable(System.getenv("host"))
+                .orElse((String) ApplicationProperties.getInstance()
+                        .get("host"));
 
-    public static String getHost() throws ConfigurationException {
-        return LoadProperties.load().getString("host");
     }
 
-    public static String getPath() throws ConfigurationException {
-        return LoadProperties.load().getString("path");
+    public static String getPath() {
+        return Optional.ofNullable(System.getenv("path"))
+                .orElse((String) ApplicationProperties.getInstance()
+                        .get("path"));
     }
-
 }
