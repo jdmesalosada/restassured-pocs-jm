@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.util.Optional;
 
 public class ConfVariables {
