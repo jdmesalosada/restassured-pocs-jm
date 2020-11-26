@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.BeforeClass;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +21,13 @@ public abstract class BaseTest {
     private static final Logger logger = LogManager.getLogger(ReqResTests.class);
 
     @BeforeClass
-    public static void setup() {
+    public static void setup() throws FileNotFoundException {
         logger.info("Iniciando la configuracion");
         RestAssured.requestSpecification = defaultRequestSpecification();
         logger.info("Configuration exitosa.");
     }
 
-    private static RequestSpecification defaultRequestSpecification(){
+    private static RequestSpecification defaultRequestSpecification() throws FileNotFoundException {
 
         List<Filter> filters = new ArrayList<>();
         filters.add(new RequestLoggingFilter());
@@ -38,13 +39,13 @@ public abstract class BaseTest {
                 .setContentType(ContentType.JSON).build();
     }
 
-    private RequestSpecification prodRequestSpecification(){
+    private RequestSpecification prodRequestSpecification() {
         return new RequestSpecBuilder().setBaseUri("https://prod.reqres.in")
                 .setBasePath("/api")
                 .setContentType(ContentType.JSON).build();
     }
 
-    public ResponseSpecification defaultResponseSpecification(){
+    public ResponseSpecification defaultResponseSpecification() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(HttpStatus.SC_OK)
                 .expectContentType(ContentType.JSON)

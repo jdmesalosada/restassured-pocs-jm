@@ -9,6 +9,7 @@ public class ConfVariables {
 
     public static String getPath() {
         return Optional.ofNullable(System.getenv("path"))
-                .orElse((String) ApplicationProperties.getInstance().get("path"));
+                .orElse((String) ApplicationProperties.getInstance()
+                        .get("path"));
     }
 }
