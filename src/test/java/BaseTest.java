@@ -10,7 +10,6 @@ import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Before;
 import org.junit.BeforeClass;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ public abstract class BaseTest {
         filters.add(new RequestLoggingFilter());
         filters.add(new ResponseLoggingFilter());
 
-        return new RequestSpecBuilder().setBaseUri("https://reqres.in")
-                .setBasePath("/api")
+        return new RequestSpecBuilder().setBaseUri(ConfVariables.getHost())
+                .setBasePath(ConfVariables.getPath())
                 .addFilters(filters)
                 .setContentType(ContentType.JSON).build();
     }
