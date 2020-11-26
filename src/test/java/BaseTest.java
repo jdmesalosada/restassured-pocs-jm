@@ -10,7 +10,6 @@ import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Before;
 import org.junit.BeforeClass;
 
 import java.io.FileNotFoundException;

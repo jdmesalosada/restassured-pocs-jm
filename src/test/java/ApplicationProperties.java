@@ -1,6 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class ApplicationProperties {
         return instance;
     }
 
-    private ApplicationProperties() {
+    private ApplicationProperties(){
     }
 
     private static Properties loadPropertiesFile() {
@@ -39,6 +40,9 @@ public class ApplicationProperties {
 
         try {
             prop.load(getClassLoader().getResourceAsStream(fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.error("Unable to load the file {}", fileName);
         } catch (FileNotFoundException ce) {
             logger.error("Unable to load the file {}", fileName);
         } catch (IOException e) {
