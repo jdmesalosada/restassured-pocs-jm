@@ -3,14 +3,22 @@
 * Gradle
 * Intellij IDEA Community Edition
 
-##**Run the tests:**
+##**Run tests:**
 ```
 gradle clean test
 ```
+
+##**Run test in a specific environment:**
+```
+gradle clean test -Denv=dev
+gradle clean test -Denv=prod
+```
+
 ##**Run just one test:**
 ```
 gradle clean test --tests ReqRes2Tests.getSingleUserTest
 ```
+
 
 ##**Playlist to follow:**
 

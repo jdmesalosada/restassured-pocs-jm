@@ -1,8 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.Properties;
@@ -43,10 +41,6 @@ public class ApplicationProperties {
         } catch (IOException e) {
             e.printStackTrace();
             logger.error("Unable to load the file {}", fileName);
-        } catch (FileNotFoundException ce) {
-            logger.error("Unable to load the file {}", fileName);
-        } catch (IOException e) {
-            logger.error("An exception loading file {}", e.getMessage());
         }
 
         return prop;
