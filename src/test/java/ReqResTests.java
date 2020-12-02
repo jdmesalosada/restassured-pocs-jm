@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class ReqResTests extends BaseTest {
+/*public class ReqResTests extends BaseTest {
 
     @Test
     public void loginTest() {
@@ -171,4 +171,4 @@ public class ReqResTests extends BaseTest {
         assertThat(userResponse.getId(), equalTo(4));
         assertThat(userResponse.getToken(), equalTo("QpwL5tke4Pnpja7X4"));
     }
-}
+}*/

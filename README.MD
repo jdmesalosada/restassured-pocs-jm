@@ -19,6 +19,9 @@ gradle clean test -Denv=prod
 gradle clean test --tests ReqRes2Tests.getSingleUserTest
 ```
 
+ALLURE 
+https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.1/
+https://github.com/allure-framework/allure-docs
 
 ##**Playlist to follow:**
 

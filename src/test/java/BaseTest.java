@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public abstract class BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(ReqResTests.class);
+    private static final Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeClass
     public static void setup() throws FileNotFoundException {
@@ -32,6 +33,7 @@ public abstract class BaseTest {
         List<Filter> filters = new ArrayList<>();
         filters.add(new RequestLoggingFilter());
         filters.add(new ResponseLoggingFilter());
+        filters.add(new AllureRestAssured());
 
         return new RequestSpecBuilder().setBaseUri(ConfVariables.getHost())
                 .setBasePath(ConfVariables.getPath())

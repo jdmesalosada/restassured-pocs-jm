@@ -10,7 +10,6 @@ public class CreateUserResponse{
 		this.token = token;
 	}
 
-
 	public int getId(){
 		return id;
 	}

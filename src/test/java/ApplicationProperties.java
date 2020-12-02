@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.Properties;
 
+
 import static org.apache.logging.log4j.core.util.Loader.getClassLoader;
 
 public class ApplicationProperties {
@@ -45,5 +46,4 @@ public class ApplicationProperties {
 
         return prop;
     }
-
 }
