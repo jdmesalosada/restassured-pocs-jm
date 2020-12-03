@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class ReqResTests extends BaseTest {
 
-    @Test
+   /* @Test
     public void loginTest() {
         given()
                 .body("{\n" +
@@ -170,5 +170,5 @@ public class ReqResTests extends BaseTest {
 
         assertThat(userResponse.getId(), equalTo(4));
         assertThat(userResponse.getToken(), equalTo("QpwL5tke4Pnpja7X4"));
-    }
+    }*/
 }
