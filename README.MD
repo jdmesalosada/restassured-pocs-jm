@@ -12,6 +12,14 @@ gradle clean test
 ```
 gradle clean test -Denv=dev
 gradle clean test -Denv=prod
+
+```
+
+##**Run test and generate report:**
+```
+./gradlew clean test
+./gradlew allureReport
+./gradlew allureServe
 ```
 
 ##**Run just one test:**
