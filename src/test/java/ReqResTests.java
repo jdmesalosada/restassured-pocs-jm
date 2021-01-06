@@ -152,7 +152,7 @@ public class ReqResTests extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        CreateUserRequest user = new CreateUserRequest();
+        model.CreateUserRequest user = new model.CreateUserRequest();
         user.setEmail("eve.holt@reqres.in");
         user.setPassword("pistol");
 

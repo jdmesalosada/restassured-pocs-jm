@@ -23,6 +23,9 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
     compile group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.0'
     compile group: 'io.qameta.allure', name: 'allure-junit4', version: '2.13.0'
+    // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
+    compile group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
 }
 
 test {

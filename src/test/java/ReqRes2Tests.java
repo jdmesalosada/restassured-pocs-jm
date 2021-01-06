@@ -1,3 +1,8 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import data.factory.CreateUserDataFactory;
+import model.CreateUserDataBuilder;
+import model.CreateUserRequest;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 
@@ -40,6 +45,45 @@ public class ReqRes2Tests extends BaseTest {
                 .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT)
                 .body("data.id", equalTo(2));
+    }
+
+    @Test
+    public void createUserMissingAllInformation() {
+        given()
+                .when()
+                .body(CreateUserDataFactory.missingAllInformation())
+                .post("register")
+                .then();
+
+    }
+
+    @Test
+    public void createUserWithValidInformation() {
+        given()
+                .when()
+                .body(CreateUserDataFactory.validUser())
+                .post("register")
+                .then();
+    }
+
+    @Test
+    public void createUserWithValidInformationTestDataBuilder() throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        CreateUserRequest user = CreateUserDataBuilder
+                .anUser()
+                .but()
+                .withNullUsername()
+                .build();
+
+        System.out.println(objectMapper.writeValueAsString(user));
+
+        given()
+                .when()
+                .body(user)
+                .post("register")
+                .then();
     }
 
 }
