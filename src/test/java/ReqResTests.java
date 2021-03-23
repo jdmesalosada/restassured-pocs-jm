@@ -1,17 +1,3 @@
-import io.restassured.http.Headers;
-import io.restassured.response.Response;
-import org.apache.http.HttpStatus;
-import org.junit.Test;
-
-import java.util.List;
-import java.util.Map;
-
-import static io.restassured.RestAssured.given;
-import static io.restassured.path.json.JsonPath.from;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
-
 public class ReqResTests extends BaseTest {
 
    /* @Test

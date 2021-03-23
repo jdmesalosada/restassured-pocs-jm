@@ -11,7 +11,7 @@ import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public abstract class BaseTest {
 
     private static final Logger logger = LogManager.getLogger(ReqResTests.class);
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() throws FileNotFoundException {
         logger.info("Iniciando la configuracion");
         RestAssured.requestSpecification = defaultRequestSpecification();
@@ -53,6 +53,4 @@ public abstract class BaseTest {
                 .expectContentType(ContentType.JSON)
                 .build();
     }
-
-
 }
