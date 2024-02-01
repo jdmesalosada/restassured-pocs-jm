@@ -35,7 +35,13 @@ public class ReqResTests extends BaseTest {
                 .get("users/2")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
-                .body("data.id", equalTo(2));
+                .body("data.id", equalTo(2))
+                .statusCode(200)
+                .body("data.id", equalTo(2))
+                .body("data.email", containsStringIgnoringCase("JANET") )
+                .body("data.email", equalTo("janet.weaver@reqres.in"))
+                .body("data.id", lessThanOrEqualTo(1) )
+                ;
 
         // System.out.println(response);
     }
