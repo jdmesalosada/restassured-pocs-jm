@@ -48,7 +48,7 @@ public abstract class BaseTest {
         filters.add(new AllureRestAssured());
 
         return new RequestSpecBuilder().setBaseUri(ConfVariables.getHost())
-                .setBasePath(ConfVariables.getPath())
+                .setBasePath(ConfVariables.getBasePath())
                 .addFilters(filters)
                 .setContentType(ContentType.JSON).build();
     }

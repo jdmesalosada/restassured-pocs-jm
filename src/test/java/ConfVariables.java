@@ -7,9 +7,9 @@ public class ConfVariables {
                 .orElse((String) ApplicationProperties.getInstance().get("host"));
     }
 
-    public static String getPath() {
-        return Optional.ofNullable(System.getenv("path"))
+    public static String getBasePath() {
+        return Optional.ofNullable(System.getenv("basePath"))
                 .orElse((String) ApplicationProperties.getInstance()
-                        .get("path"));
+                        .get("basePath"));
     }
 }
