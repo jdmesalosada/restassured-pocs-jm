@@ -11,8 +11,8 @@ gradlew clean test -Denv=dev
 
 ##**Run test in a specific environment:**
 ```
-gradle clean test -Denv=dev
-gradle clean test -Denv=prod
+gradlew clean test -Denv=dev
+gradlew clean test -Denv=prod
 
 ```
 
