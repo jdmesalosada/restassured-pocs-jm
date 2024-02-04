@@ -4,7 +4,7 @@ import data.factory.CreateUserDataFactory;
 import model.CreateUserDataBuilder;
 import model.CreateUserRequest;
 import org.apache.http.HttpStatus;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;

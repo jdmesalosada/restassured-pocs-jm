@@ -1,11 +1,12 @@
 ##**Pre-requisites:**
-* Java 1.8 (JDK)
-* Gradle
-* Intellij IDEA Community Edition
+### Requirements
+* [openjdk 17](https://adoptium.net/temurin/releases/?version=17)
+* [Gradle gradle-8.5](https://gradle.org/releases/)
+* [Maven 3.9.6](https://maven.apache.org/download.cgi)
 
 ##**Run tests:**
 ```
-gradle clean test
+gradlew clean test -Denv=dev
 ```
 
 ##**Run test in a specific environment:**
@@ -13,6 +14,11 @@ gradle clean test
 gradle clean test -Denv=dev
 gradle clean test -Denv=prod
 
+```
+
+##**Run tests from powershell commandline:**
+```
+.\gradlew clean test -Denv=dev
 ```
 
 ##**Run test and generate report:**

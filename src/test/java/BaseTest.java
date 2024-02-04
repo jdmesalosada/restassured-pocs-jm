@@ -11,21 +11,33 @@ import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public abstract class BaseTest {
 
     private static final Logger logger = LogManager.getLogger(ReqResTests.class);
+    private static ReentrantLock lock = new ReentrantLock();
+    private static boolean started = false;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() throws FileNotFoundException {
-        logger.info("Iniciando la configuracion");
-        RestAssured.requestSpecification = defaultRequestSpecification();
-        logger.info("Configuration exitosa.");
+        lock.lock();
+
+        try {
+            if (!started) {
+                logger.info("Iniciando la configuracion");
+                RestAssured.requestSpecification = defaultRequestSpecification();
+                logger.info("Configuration exitosa.");
+            }
+        } finally {
+            lock.unlock();
+        }
     }
 
     private static RequestSpecification defaultRequestSpecification() throws FileNotFoundException {
