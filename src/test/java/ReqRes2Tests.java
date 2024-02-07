@@ -17,7 +17,8 @@ public class ReqRes2Tests extends BaseTest {
     @Tag("Authentication")
     public void getSingleUserTest() {
         given()
-                .get("users/2")
+                .pathParam("userId", 2)
+                .get( Endpoints.USERS.path())
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .body("data.id", equalTo(2));
@@ -27,7 +28,8 @@ public class ReqRes2Tests extends BaseTest {
     @Tag("Authentication")
     public void getSingleUserTest2() {
         given()
-                .get("users/2")
+                .pathParam("userId", 2)
+                .get(Endpoints.USERS.path())
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .body("data.id", equalTo(2));
@@ -36,7 +38,8 @@ public class ReqRes2Tests extends BaseTest {
     @Test
     public void destinatedToFail() {
         given()
-                .get("users/2")
+                .pathParam("userId", 2)
+                .get(Endpoints.USERS.path())
                 .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT)
                 .body("data.id", equalTo(2));
@@ -45,7 +48,7 @@ public class ReqRes2Tests extends BaseTest {
     @Test
     public void destinatedToFail2() {
         given()
-                .get("users/2")
+                .get(Endpoints.USERS.path())
                 .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT)
                 .body("data.id", equalTo(2));
@@ -66,7 +69,7 @@ public class ReqRes2Tests extends BaseTest {
         given()
                 .when()
                 .body(CreateUserDataFactory.validUser())
-                .post("register")
+                .post(Endpoints.REGISTER.path())
                 .then();
     }
 
