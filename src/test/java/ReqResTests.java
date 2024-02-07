@@ -1,6 +1,7 @@
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,7 +15,8 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class ReqResTests extends BaseTest {
 
-   /* @Test
+    @Test
+    @Tag("Payment")
     public void loginTest() {
         given()
                 .body("{\n" +
@@ -29,6 +31,7 @@ public class ReqResTests extends BaseTest {
         // System.out.println(response);
     }
 
+    /*
     @Test
     public void getSingleUserTest() {
         given()

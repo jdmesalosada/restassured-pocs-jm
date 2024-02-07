@@ -4,14 +4,17 @@ import data.factory.CreateUserDataFactory;
 import model.CreateUserDataBuilder;
 import model.CreateUserRequest;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+@Tag("Regression")
 public class ReqRes2Tests extends BaseTest {
 
     @Test
+    @Tag("Authentication")
     public void getSingleUserTest() {
         given()
                 .get("users/2")
@@ -21,6 +24,7 @@ public class ReqRes2Tests extends BaseTest {
     }
 
     @Test
+    @Tag("Authentication")
     public void getSingleUserTest2() {
         given()
                 .get("users/2")

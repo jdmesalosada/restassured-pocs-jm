@@ -32,3 +32,26 @@ test {
     useJUnitPlatform()
     testLogging.showStandardStreams = true
 }
+
+task paymentTest(type: Test){
+    useJUnitPlatform {
+        includeTags 'Payment'
+    }
+    testLogging.showStandardStreams = true
+}
+
+task authenticationTest(type: Test){
+    useJUnitPlatform {
+        includeTags 'Authentication'
+    }
+    testLogging.showStandardStreams = true
+}
+
+task regressionTest(type: Test){
+    useJUnitPlatform {
+        includeTags 'Regression', 'Pepito'
+        excludeTags 'Authentication', 'Pepita'
+    }
+    testLogging.showStandardStreams = true
+}
+
