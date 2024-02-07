@@ -1,3 +1,6 @@
+package conf;
+
+import conf.ConfVariables;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -21,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(ReqResTests.class);
+    private static final Logger logger = LogManager.getLogger(BaseTest.class);
     private static ReentrantLock lock = new ReentrantLock();
     private static boolean started = false;
 
