@@ -1,16 +1,11 @@
-import io.restassured.http.Headers;
-import io.restassured.response.Response;
+import conf.BaseTest;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class ReqResTests extends BaseTest {
@@ -95,7 +90,7 @@ public class ReqResTests extends BaseTest {
     @Test
     public void getAllUsersTest() {
 
-        Response response = given()
+        model.Response response = given()
                 .get("users?page=2");
 
         Headers headers = response.getHeaders();
@@ -152,8 +147,8 @@ public class ReqResTests extends BaseTest {
                         .body()
                         .asString();
 
-        User user = from(response)
-                .getObject("", User.class);
+        model.User user = from(response)
+                .getObject("", model.User.class);
 
         System.out.println(user.getId());
         System.out.println(user.getJob());
@@ -165,7 +160,7 @@ public class ReqResTests extends BaseTest {
         user.setEmail("eve.holt@reqres.in");
         user.setPassword("pistol");
 
-        CreateUserResponse userResponse =
+        model.CreateUserResponse userResponse =
                 given()
                         .when()
                         .body(user)
@@ -175,7 +170,7 @@ public class ReqResTests extends BaseTest {
                         .contentType(equalTo("application/json; charset=utf-8"))
                         .extract()
                         .body()
-                        .as(CreateUserResponse.class);
+                        .as(model.CreateUserResponse.class);
 
         assertThat(userResponse.getId(), equalTo(4));
         assertThat(userResponse.getToken(), equalTo("QpwL5tke4Pnpja7X4"));

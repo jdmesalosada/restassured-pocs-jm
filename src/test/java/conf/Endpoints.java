@@ -1,3 +1,5 @@
+package conf;
+
 public enum Endpoints {
 
     REGISTER("register"),

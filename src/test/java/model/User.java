@@ -1,3 +1,5 @@
+package model;
+
 public class User {
     private String createdAt;
     private String name;
