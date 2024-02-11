@@ -1,5 +1,3 @@
-package conf;
-
 import java.util.Optional;
 
 public class ConfVariables {

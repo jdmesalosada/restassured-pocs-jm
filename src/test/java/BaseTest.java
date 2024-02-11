@@ -1,6 +1,3 @@
-package conf;
-
-import conf.ConfVariables;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

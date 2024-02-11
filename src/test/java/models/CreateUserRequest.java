@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class CreateUserRequest {
     private String password;

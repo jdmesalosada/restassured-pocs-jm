@@ -9,12 +9,12 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class GetSingleUser {
 
-    public ValidatableResponse byId(Integer id) {
-        return
-                given()
-                        .pathParam("userId", id)
-                        .get(Endpoints.USERS.path())
-                        .then();
+    public ValidatableResponse byId(Integer id){
+        return given()
+                .pathParam("userId", id)
+                .get(Endpoints.USERS.path())
+                .then();
+               // .statusCode(HttpStatus.SC_OK)
+               // .body("data.id", equalTo(2));
     }
-
 }

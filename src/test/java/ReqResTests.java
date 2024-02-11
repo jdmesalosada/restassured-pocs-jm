@@ -1,4 +1,3 @@
-import conf.BaseTest;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -156,11 +155,11 @@ public class ReqResTests extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        model.CreateUserRequest user = new model.CreateUserRequest();
+        models.CreateUserRequest user = new models.CreateUserRequest();
         user.setEmail("eve.holt@reqres.in");
         user.setPassword("pistol");
 
-        model.CreateUserResponse userResponse =
+        models.CreateUserResponse userResponse =
                 given()
                         .when()
                         .body(user)
@@ -170,9 +169,13 @@ public class ReqResTests extends BaseTest {
                         .contentType(equalTo("application/json; charset=utf-8"))
                         .extract()
                         .body()
-                        .as(model.CreateUserResponse.class);
+                        .as(models.CreateUserResponse.class);
 
         assertThat(userResponse.getId(), equalTo(4));
         assertThat(userResponse.getToken(), equalTo("QpwL5tke4Pnpja7X4"));
     }*/
+
+
+
+
 }
