@@ -50,6 +50,13 @@ mvn allure:report
 mvn allure:serve
 ```
 
+### **Generate the report without the plugin:**
+
+1. Download the allure command line: https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/
+select the right version.
+2. Configure the Allure in the variable PATH
+3. Run the command allure generate "${result_folder}"
+
 
 ### **Playlist to follow:**
 

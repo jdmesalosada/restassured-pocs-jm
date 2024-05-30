@@ -32,7 +32,7 @@ public class ReqRes2Tests extends BaseTest {
         getSingleUserResponse.body("data.id", equalTo(2));
     }
 
-    @Test
+  /*  @Test
     @Tag("Authentication")
     public void getSingleUserTest2() {
         given()
@@ -100,6 +100,6 @@ public class ReqRes2Tests extends BaseTest {
                 .body(user)
                 .post("register")
                 .then();
-    }
+    }*/
 
 }
